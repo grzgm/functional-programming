@@ -31,6 +31,10 @@ shiftedChars = map fromCode shiftedInts
 -- Concatenate List of Char's to String
 encodedString = fromList shiftedChars
 
+-- change 65 and 90 to toCode 65
+-- abstarct if
+-- encode as Int -> Char -> Char
+-- make into one function encode
 encode: Int -> Int -> Int
 encode shift int =
     if ((int >= 65) && (int <= 90)) || ((int >= 97) && (int <= 122)) then
