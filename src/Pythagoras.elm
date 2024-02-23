@@ -10,7 +10,7 @@ toString value =
 
 sqr: Int -> Int
 sqr num =
-    num * num
+  num * num
 
 main = text(result)
 --result = toString (isTriple numA numB numC)
@@ -28,6 +28,9 @@ result = toString (isTripleTuple (pythTriple (numGenerateLeft, numGenerateRight)
 
 isTriple: Int -> Int -> Int -> Bool
 isTriple a b c =
+  if a <= 0 || b <= 0 || c <= 0 then
+    False
+  else 
     sqr a + sqr b == sqr c
 
 leg1: Int -> Int -> Int
@@ -44,7 +47,10 @@ leg3 left right =
 
 pythTriple: (Int, Int) -> (Int, Int, Int)
 pythTriple (left, right) =
-  ((leg1 left right), (leg2 left right), (leg3 left right))
+  if left <= 0 || right <= 0 then
+    (0, 0, 0)
+  else
+    ((leg1 left right), (leg2 left right), (leg3 left right))
 
 isTripleTuple: (Int, Int, Int) -> Bool
 isTripleTuple (a, b, c) =
