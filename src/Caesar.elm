@@ -13,6 +13,11 @@ words = "Test"
 
 desiredShift = -1000
 
+upperCaseStart = (toCode 'A')
+upperCaseEnd = (toCode 'Z')
+lowerCaseStart = (toCode 'a')
+lowerCaseEnd = (toCode 'z')
+
 -- Split String to List of Char's
 
 chars = toList words
@@ -31,17 +36,21 @@ shiftedChars = map fromCode shiftedInts
 -- Concatenate List of Char's to String
 encodedString = fromList shiftedChars
 
--- abstarct if
 -- encode as Int -> Char -> Char
 -- make into one function encode
+
+getShifted: Char -> Int -> Int -> Int
+getShifted startOfAlphabet shift int =
+    (modBy 26 (int - (toCode startOfAlphabet) + shift)) + (toCode startOfAlphabet)
+
 encode: Int -> Int -> Int
 encode shift int =
-    if ((int >= (toCode 'A')) && (int <= (toCode 'Z'))) || ((int >= (toCode 'a')) && (int <= (toCode 'z'))) then
-        if (int >= (toCode 'A')) && (int <= (toCode 'Z')) then
-            (modBy 26 (int - (toCode 'A') + shift)) + (toCode 'A')
+    if ((int >= upperCaseStart) && (int <= upperCaseEnd)) || ((int >= lowerCaseStart) && (int <= lowerCaseEnd)) then
+        if (int >= upperCaseStart) && (int <= upperCaseEnd) then
+            getShifted 'A' shift int
 
         else
-            (modBy 26 (int - (toCode 'a') + shift)) + (toCode 'a')
+            getShifted 'a' shift int
     else
         int
 
