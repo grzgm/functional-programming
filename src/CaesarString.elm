@@ -1,4 +1,4 @@
-module Caesar exposing (..)
+module CaesarString exposing (..)
 
 import Html exposing (text)
 import Char exposing (toCode)
