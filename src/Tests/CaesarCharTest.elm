@@ -6,6 +6,10 @@ import Html exposing (text)
 toString = Debug.toString
 
 encodingTest = [
+    toString <| encode 25 'a' == 'z',
+    toString <| encode 26 'a' == 'a',
+    toString <| encode 1 'A' == 'B',
+    toString <| encode -1 'A' == 'Z',
     toString <| encode 5 'x' == 'c',
     toString <| encode 7 'T' == 'A'
     ]

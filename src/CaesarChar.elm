@@ -5,7 +5,7 @@ import Char exposing (toCode, fromCode)
 
 charToEncode = 'A'
 
-desiredShift = 25 
+desiredShift = 1
 
 upperCaseStart = (toCode 'A')
 upperCaseEnd = (toCode 'Z')
