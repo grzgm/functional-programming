@@ -5,3 +5,5 @@ repl-temp-*
 
 package.json
 package-lock.json
+
+src/sandbox.elm
