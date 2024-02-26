@@ -25,6 +25,40 @@ Testing is divided into three parts: encoding, decoding, encoding and decoding a
 
 ---
 
+Solution File: _src/_
+
+Test File: _src/Tests/_
+
 #### Solution
 
 #### Tests
+
+## Week 2
+
+### Caesar (part 2)
+
+---
+
+Solution File: _src/_
+
+Test File: _src/Tests/_
+
+#### Solution
+
+#### Tests
+
+### Pythagoras (part 2)
+
+---
+
+Solution File: _src/Pythagoras2.elm_
+
+Test File: _src/Tests/Pythagoras2Test.elm_
+
+#### Solution
+
+Script utilises the `map`, `filter` functions and Case Expressions with the functions from the first part of exercise. `pythTriplesMap` and `arePythTriplesFilter` utilises basic implementation of `map`, `filter`. The `pythTriplesRec` has base case of empty _List_, which returns empty _List_. In other cases it is returning the list of: output for `pythTriple` given first element and `pythTriplesRec` with the rest of the _List_, this guarantees that _List_ will be empty at some point leading to base case. Similar pattern is used for `arePythTriplesRec`, which has the same base case, but if the _List_ is not empty it is utilising _if_ statement to examin wheter first triplet (first element) is Pythagorean, if so it is returned with the recursive call to `arePythTriplesRec` with the rest of _List_ as argument. Else it is just returning recursive call to `arePythTriplesRec` with the rest of _List_ as argument.
+
+#### Tests
+
+Tests verify whether functions correctly work with standard cases and with edge cases, such as empty list.
