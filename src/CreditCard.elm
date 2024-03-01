@@ -13,7 +13,8 @@ import Html exposing (Html)
 
 -- * DONE List.foldr or List.foldl
 
-main = Html.text <| Debug.toString <| sumDigits <| doubleSecond <| toDigitsRev "123456"
+-- main = Html.text <| Debug.toString <| sumDigits <| doubleSecond <| toDigitsRev "4012888888881881"
+main = Html.text <| Debug.toString <| isValid "4012888888881881"
 
 ------------------------------------------------------------------------------------------------------------------------------
 -- Validating Credit Card Numbers
@@ -46,7 +47,7 @@ doubleSecond list =
         x :: xs -> x :: doubleSecond xs
         [] -> []
 -- ===================================
--- Ex. 3
+-- Ex. 3 Sum all the digits of numbers
 -- ===================================
 
 sumDigitsOfInt: Int -> Int
@@ -64,13 +65,12 @@ sumDigits list =
 
 
 -- ===================================
--- Ex. 4
+-- Ex. 4 Verify whether card number is divisible by 10 
 -- ===================================
 
 isValid: String -> Bool
-isValid x = 
-    -- TODO 
-    True
+isValid str = 
+   (modBy 10 <| sumDigits <| doubleSecond <| toDigitsRev str) == 0
 
 
 -- ===================================
