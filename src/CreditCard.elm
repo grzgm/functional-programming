@@ -14,7 +14,7 @@ import Html exposing (Html)
 -- * DONE List.foldr or List.foldl
 
 -- main = Html.text <| Debug.toString <| sumDigits <| doubleSecond <| toDigitsRev "4012888888881881"
-main = Html.text <| Debug.toString <| isValid "4012888888881881"
+main = Html.text <| Debug.toString <| validateCreditCards creditCards
 
 ------------------------------------------------------------------------------------------------------------------------------
 -- Validating Credit Card Numbers
@@ -74,18 +74,16 @@ isValid str =
 
 
 -- ===================================
--- Ex. 5
+-- Ex. 5 Count number of valid credit card numbers in the list
 -- ===================================
     
 numValid: List String -> Int
-numValid xs = 
-    -- haskell: sum . map (\_ -> 1) $ filter isValid xs
-    -- TODO 
-    73
+numValid =
+    List.filter isValid >> List.length
 
 
-creditcards: List Int
-creditcards = [ 4716347184862961,
+creditCards: List Int
+creditCards = [ 4716347184862961,
                 4532899082537349,
                 4485429517622493,
                 4320635998241421,
@@ -209,7 +207,11 @@ creditcards = [ 4716347184862961,
 
 -- collecting results for printing:
 
-my_results =
+validateCreditCards : List Int -> Int
+validateCreditCards =
+    List.map String.fromInt >> numValid
+
+myResults =
     [
         "calculations:",
         "-- end --"
