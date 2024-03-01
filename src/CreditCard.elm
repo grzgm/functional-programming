@@ -11,14 +11,16 @@ import Html exposing (Html)
 
 -- * List.filter
 
--- * List.foldr or List.foldl
+-- * DONE List.foldr or List.foldl
+
+main = Html.text <| Debug.toString <| doubleSecond <| toDigitsRev "123456"
 
 ------------------------------------------------------------------------------------------------------------------------------
 -- Validating Credit Card Numbers
 ------------------------------------------------------------------------------------------------------------------------------
 
 -- ===================================
--- Ex. 0
+-- Ex. 0 Convert String into List of Integers
 -- ===================================
 
 toDigits: String -> List Int
@@ -26,23 +28,23 @@ toDigits x =
     List.map (\y -> y - Char.toCode '0') (List.map Char.toCode (String.toList x))
 
 -- ===================================
--- Ex. 1
+-- Ex. 1 Convert String into List of Integers and reverse List
 -- ===================================
 
 toDigitsRev: String -> List Int
 toDigitsRev x = 
-    -- TODO 
-    []
+    List.foldl (::) [] <| toDigits x
 
 -- ===================================
--- Ex. 2
+-- Ex. 2 Double every second Integer in the List
 -- ===================================
 
 doubleSecond: List Int -> List Int
-doubleSecond xs = 
-    -- TODO 
-    []
-
+doubleSecond list = 
+    case list of
+        x :: x2 :: xs -> x :: x2 * 2 :: doubleSecond xs
+        x :: xs -> x :: doubleSecond xs
+        [] -> []
 -- ===================================
 -- Ex. 3
 -- ===================================
@@ -207,10 +209,10 @@ my_results =
     
 -- create main method (Boiler-plate)
 
-to_div my_value = 
-    Html.div [] [ my_value |> Html.text ]
+-- to_div my_value = 
+--     Html.div [] [ my_value |> Html.text ]
 
-main = Html.div 
-        []
-        (List.map to_div my_results)
+-- main = Html.div 
+--         []
+--         (List.map to_div my_results)
     
