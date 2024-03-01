@@ -21,7 +21,7 @@ encodingTest = [
     ]
 decodingTest = [
     toString <| decrypt 5 "Efi" == "Zad",
-    toString <| decrypt 7 "RFRFRZ" == "YMYMYG"
+    toString <| decrypt -7 "RFRFRZ" == "YMYMYG"
     ]
 encodingDecodingTest = [
     toString <| (decrypt 5 <| encrypt 5 "Testz") == "Testz",
