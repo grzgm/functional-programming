@@ -1,9 +1,9 @@
 module CreditCard exposing (..)
 import Html exposing (Html)
 
--- * function recursion
+-- * DONE function recursion
 
--- * list recursion
+-- * DONE list recursion
 
 -- * DONE lambda expression (aka. anonymous function)
 
@@ -13,7 +13,7 @@ import Html exposing (Html)
 
 -- * DONE List.foldr or List.foldl
 
-main = Html.text <| Debug.toString <| doubleSecond <| toDigitsRev "123456"
+main = Html.text <| Debug.toString <| sumDigits <| doubleSecond <| toDigitsRev "123456"
 
 ------------------------------------------------------------------------------------------------------------------------------
 -- Validating Credit Card Numbers
@@ -49,10 +49,18 @@ doubleSecond list =
 -- Ex. 3
 -- ===================================
 
+sumDigitsOfInt: Int -> Int
+sumDigitsOfInt int =
+    if int <= 9 then
+        int
+    else
+        (sumDigitsOfInt (int // 10)) + modBy 10 int
+
 sumDigits: List Int -> Int
-sumDigits xs = 
-    -- TODO 
-    73
+sumDigits list = 
+    case list of
+        [] -> 0
+        x :: xs -> (sumDigitsOfInt x) + sumDigits xs
 
 
 -- ===================================
