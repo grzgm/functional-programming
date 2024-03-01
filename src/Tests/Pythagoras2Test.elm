@@ -1,4 +1,4 @@
-module Tests.PythagorasTest exposing (..)
+module Tests.Pythagoras2Test exposing (..)
 
 import Html exposing (text)
 import Pythagoras2 exposing (..)
