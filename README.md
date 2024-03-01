@@ -120,4 +120,4 @@ Script displays  the amount of valid credit card numbers in the `creditCards` li
 
 #### Tests
 
-There is no dedicated test file, as the script operates on the 219 credit cards number, which ultimately tests its correctness on different examples.
+In addition to the fact that the script operates on the 219 credit cards number, which ultimately tests its correctness on different examples, each function is tested for standard cases and edge cases. Some of the functions are parts of other, so the testing starts with the most basic standalone functions.
