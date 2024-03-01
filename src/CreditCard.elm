@@ -1,21 +1,6 @@
 module CreditCard exposing (..)
 import Html exposing (Html)
 
--- * DONE function recursion
-
--- * DONE list recursion
-
--- * DONE lambda expression (aka. anonymous function)
-
--- * DONE List.map
-
--- * List.filter
-
--- * DONE List.foldr or List.foldl
-
--- main = Html.text <| Debug.toString <| sumDigits <| doubleSecond <| toDigitsRev "4012888888881881"
-main = Html.text <| Debug.toString <| validateCreditCards creditCards
-
 ------------------------------------------------------------------------------------------------------------------------------
 -- Validating Credit Card Numbers
 ------------------------------------------------------------------------------------------------------------------------------
@@ -207,22 +192,30 @@ creditCards = [ 4716347184862961,
 
 -- collecting results for printing:
 
+-- convert the List of Int's to List of String's and validate them
 validateCreditCards : List Int -> Int
 validateCreditCards =
     List.map String.fromInt >> numValid
 
+-- get List of valid Credit Cards
+validCreditCards : List String
+validCreditCards = 
+    creditCards |>
+    List.map String.fromInt |>
+    List.filter isValid
+
 myResults =
-    [
-        "calculations:",
-        "-- end --"
-    ] 
+        ["calculations:" ++ (String.fromInt <| validateCreditCards creditCards),
+        "valid credit cards: "] ++
+        validCreditCards ++
+        ["-- end --"]
     
 -- create main method (Boiler-plate)
 
--- to_div my_value = 
---     Html.div [] [ my_value |> Html.text ]
+toDiv myValue = 
+    Html.div [] [ myValue |> Html.text ]
 
--- main = Html.div 
---         []
---         (List.map to_div my_results)
+main = Html.div 
+        []
+        (List.map toDiv myResults)
     
