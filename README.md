@@ -62,3 +62,62 @@ Script utilises the `map`, `filter` functions and Case Expressions with the func
 #### Tests
 
 Tests verify whether functions correctly work with standard cases and with edge cases, such as empty list.
+
+## Week 3
+
+### Caesar (part 3)
+
+---
+
+Solution File: _src/_
+
+Test File: _src/Tests/_
+
+#### Solution
+
+#### Tests
+
+### Validating Credit Card Numbers
+
+---
+
+Solution File: _src/CreditCard.elm_
+
+Test File: _src/Tests/CreditCardTest.elm_
+
+#### Solution
+
+Script implements `toDigits`, `toDigitsRev`, `doubleSecond`, `sumDigitsOfInt`, `sumDigits`, `isValid`, `numValid`, `validateCreditCards`, `validCreditCards`.
+
+`toDigits`:
+    The `toDigits` function converts a credit card number represented as a string into a list of integers. It achieves this by first converting each character in the string to its ASCII code using `Char.toCode`, and then subtracting the ASCII code of '0' to obtain the numeric value. The resulting list represents the individual digits of the credit card number.
+
+`toDigitsRev`:
+    This function is an extension of `toDigits`. It takes a credit card number as a string, converts it into a list of integers using `toDigits`, and then reverses the order of the obtained list. The reversal is done using `List.foldl (::) []`, where `::` is the cons operator that adds elements to the front of a list.
+
+`doubleSecond`:
+    The `doubleSecond` function takes a list of integers (representing the digits of a credit card number) and doubles every second integer in the list. It is designed to be used after obtaining the reversed list from `toDigitsRev`. The doubling is performed by pattern matching on the list and applying the doubling operation to every second element.
+
+`sumDigitsOfInt`:
+    This function calculates the sum of the digits of a given integer. It uses recursion and modulo arithmetic to break down the integer into its individual digits and then recursively adds them up. The base case checks if the integer is a single-digit number.
+
+`sumDigits`:
+    The `sumDigits` function takes a list of integers and calculates the sum of the digits for each integer in the list using `sumDigitsOfInt`. The result is the total sum of all digits in the list.
+
+`isValid`:
+    The `isValid` function checks the validity of a credit card number by applying the Luhn algorithm. It uses a composition of `toDigitsRev`, `doubleSecond`, and `sumDigits` to calculate the sum of the digits after doubling every second digit. The result is deemed valid if the sum is divisible by 10.
+
+`numValid`:
+    This function takes a list of credit card numbers as strings, filters out the valid ones using `isValid`, and then calculates the total number of valid credit cards using `List.length`.
+
+`validateCreditCards`:
+    The `validateCreditCards` function takes a list of credit card numbers as integers, converts them to strings, and then applies `numValid` to get the count of valid credit cards.
+
+`validCreditCards`:
+    This list comprehension extracts the valid credit card numbers from the predefined `creditCards` list. It converts them to strings and filters them based on the validity determined by `isValid`.
+    
+Script displays  the amount of valid credit card numbers in the `creditCards` list and the valid credit card numbers.
+
+#### Tests
+
+There is no dedicated test file, as the script operates on the 219 credit cards number, which ultimately tests its correctness on different examples.
