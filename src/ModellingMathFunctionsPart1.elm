@@ -48,6 +48,10 @@ eval num fun =
       (toFloat i)
     X ->
       num
+
+graph: Function -> Int -> Int -> Int -> Int -> String
+graph fun x1 x2 y1 y2 =
+    ""
       
 f = Plus (Mult (Plus (Const 3) X) (Minus X (Poly X 5))) (Const 2)
 
