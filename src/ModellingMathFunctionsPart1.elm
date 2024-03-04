@@ -94,10 +94,14 @@ graph fun x1 x2 y1 y2 =
 f =
     Plus (Mult (Plus (Const 3) X) (Minus X (Poly X 5))) (Const 2)
 
+g =
+    (Plus (Minus (Poly (Minus (Div X (Const 5)) (Const 1)) 4) (Poly (Plus (Div X (Const -2)) (Const 2)) 2)) (Const 6))
 
 result =
     String.words <| graph f -15 15 -15 15
---  [print f]
+    -- String.words <| graph g -10 20 -10 10
+    -- [print g]
+    -- [(Debug.toString <| eval 14.3 g)]
 
 
 toDiv : String -> Html msg
