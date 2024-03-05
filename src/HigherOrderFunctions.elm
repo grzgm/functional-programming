@@ -1,7 +1,6 @@
 module HigherOrderFunctions exposing (..)
 
 import Html exposing (Html)
-import List exposing (head)
 import Html.Attributes exposing (list)
 
 
@@ -29,8 +28,8 @@ double x =
     x * 2
 
 
-logarithms : Int -> Int -> Int -> Bool
-logarithms base value exponent =
+logarithmsCondition : Int -> Int -> Int -> Bool
+logarithmsCondition base value exponent =
     (base ^ exponent) >= value
 
 
@@ -55,20 +54,17 @@ collatzValue num =
 
 collatz : List Int -> List Int
 collatz list =
-    -- case list of
-    --     x :: xs ->
-    --         if collatzValue x == 1 then
-    --             x :: xs
-    --         else
-    --             (collatz [x]) ++ x :: xs
-    --     _ ->
-    --         []
     case List.head list of
         Just first ->
-            if collatzValue first == 1 then
-                collatzValue first :: list
+            let
+                comptedValue =
+                    collatzValue first
+            in
+            if comptedValue == 1 then
+                comptedValue :: list
+
             else
-                collatz (collatzValue first :: list)
+                collatz (comptedValue :: list)
 
         Nothing ->
             []
@@ -77,7 +73,7 @@ collatz list =
 result =
     [ Debug.toString <| repeatUntil above100 double 7
     , Debug.toString <| repeatUntil above100 ((+) 1) 42
-    , Debug.toString <| repeatUntil (logarithms 3 100) ((+) 1) 1
+    , Debug.toString <| repeatUntil (logarithmsCondition 3 100) ((+) 1) 1
     , Debug.toString <| repeatUntil collatzCompareFirstElement collatz [ 19 ]
 
     -- , Debug.toString <| repeatUntil (\x -> (3 ^ x) >= 100) ((+) 1) 1
