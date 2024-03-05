@@ -14,8 +14,8 @@ repeatUntil testFun doFun arg =
 
 
 above100 : Int -> Bool
-above100 x =
-    x > 100
+above100 =
+    aboveGiven 100
 
 
 aboveGiven : Int -> Int -> Bool
@@ -71,8 +71,8 @@ collatz list =
 
 
 result =
-    [ Debug.toString <| repeatUntil above100 double 7
-    , Debug.toString <| repeatUntil above100 ((+) 1) 42
+    [ Debug.toString <| repeatUntil (aboveGiven 100) double 7
+    , Debug.toString <| repeatUntil (aboveGiven 100) ((+) 1) 42
     , Debug.toString <| repeatUntil (logarithmsCondition 3 100) ((+) 1) 1
     , Debug.toString <| repeatUntil collatzCompareFirstElement collatz [ 19 ]
 

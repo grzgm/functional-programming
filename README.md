@@ -192,6 +192,50 @@ Test File: _src/Tests/HigherOrderFunctionsTest.elm_
 
 #### Solution
 
+Script implements:
+
+`repeatUntil : (a -> Bool) -> (a -> a) -> a -> a`:
+
+This higher-order function repeatedly applies a given function (`doFun`) to an initial value (`arg`) until a specified condition (`testFun`) is satisfied. It's a form of recursion where the base case is defined by the condition function. The function has a generic type `a` to accommodate different types of arguments.
+
+`aboveGiven : Int -> Int -> Bool`:
+
+This function takes two integers, `cap` and `x`, and returns `True` if `x` is greater than `cap`. This is a basic comparison function.
+
+`logarithmsCondition : Int -> Int -> Int -> Bool`:
+
+This function takes three integers: `base`, `value`, and `exponent`. It checks if the result of raising `base` to the power of `exponent` is greater than or equal to `value`. This is used for checking if a logarithmic condition is met.
+
+`collatzCompareFirstElement : List Int -> Bool`:
+
+This function checks if the first element of a list of integers is equal to 1 with the `case` notation. It's designed for use in the Collatz sequence.
+
+`collatzValue : Int -> Int`:
+
+This function implements the Collatz conjecture by determining the next value in the sequence based on the rules. If the current number is even, it's halved; if odd, it's tripled and one is added.
+
+`collatz : List Int -> List Int`:
+
+This function applies the `collatzValue` function to the first element of the input list and recursively calls itself until the computed value is 1. It builds a list of integers representing a Collatz sequence. In the implementation, `Just` and `Nothing` are used to handle optional values when pattern matching on the result of `List.head list`. If the list is non-empty, `Just first` is matched, and if it's empty, `Nothing` is matched.
+
+Usage:
+
+`repeatUntil (aboveGiven 100) double 7`:
+
+This example uses `repeatUntil` to double the value 7 until it is above 100. `aboveGiven 100` is a partially applied function where `cap` is set to 100.
+
+`repeatUntil (aboveGiven 100) ((+) 1) 42`:
+
+Similar to the first example, this one uses `repeatUntil` to increment the value 42 until it is above 100. Again, `aboveGiven 100` is a partially applied function.
+
+`repeatUntil (logarithmsCondition 3 100) ((+) 1) 1`:
+
+This example uses `repeatUntil` to increment the value 1 until the condition `(3 ^ x) >= 100` is met. `logarithmsCondition 3 100` is a partially applied function, this approach allows for control over base and value of logarithm.
+
+`repeatUntil collatzCompareFirstElement collatz [19]`:
+
+`repeatUntil` is applied to the `collatz` function with an initial list `[19]`. It generates a Collatz sequence until the condition specified in `collatzCompareFirstElement` is met.
+
 #### Tests
 
 ### Name
