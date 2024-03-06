@@ -1,6 +1,6 @@
 module ModellingMathFunctionsPart1 exposing (..)
 
-import Html exposing (Html, text)
+import Html exposing (Html)
 
 
 type Function
@@ -73,7 +73,8 @@ graphLine fun x1 y1 y2 =
             abs y1 + abs y2
     in
     if (funValue > y1) && (funValue < y2) then
-        String.padLeft (funValue - y1) '+' "" ++ String.padRight (ySpace - (funValue - y1)) '=' ""
+        String.padLeft (funValue - y1) '+' ""
+            ++ String.padRight (ySpace - (funValue - y1)) '=' ""
 
     else if funValue > y1 then
         String.padLeft ySpace '+' ""
@@ -88,14 +89,28 @@ graph fun x1 x2 y1 y2 =
         graphLine fun x1 y1 y2 ++ "\n"
 
     else
-        graphLine fun x1 y1 y2 ++ "\n" ++ graph fun (x1 + 1) x2 y1 y2
+        graphLine fun x1 y1 y2
+            ++ "\n"
+            ++ graph fun (x1 + 1) x2 y1 y2
 
 
 f =
-    Plus (Mult (Plus (Const 3) X) (Minus X (Poly X 5))) (Const 2)
+    Plus
+        (Mult
+            (Plus (Const 3) X)
+            (Minus X (Poly X 5))
+        )
+        (Const 2)
+
 
 g =
-    (Plus (Minus (Poly (Minus (Div X (Const 5)) (Const 1)) 4) (Poly (Plus (Div X (Const -2)) (Const 2)) 2)) (Const 6))
+    Plus
+        (Minus
+            (Poly (Minus (Div X (Const 5)) (Const 1)) 4)
+            (Poly (Plus (Div X (Const -2)) (Const 2)) 2)
+        )
+        (Const 6)
+
 
 result =
     String.words <| graph f -15 15 -15 15

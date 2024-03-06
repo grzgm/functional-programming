@@ -180,6 +180,8 @@ Html output is done with the same method as [Validating Credit Card Numbers](#Va
 
 #### Tests
 
+Tests cover wide range of the normal and edge cases. From evaluating different types of functions (Linear, Quadratic, Polynomial, Rational) and input from minimal to multi parameter functions.
+
 ## Week 5
 
 ### Higher Order Functions
