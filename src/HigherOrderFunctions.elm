@@ -74,7 +74,7 @@ result =
     [ Debug.toString <| repeatUntil (aboveGiven 100) double 7
     , Debug.toString <| repeatUntil (aboveGiven 100) ((+) 1) 42
     , Debug.toString <| repeatUntil (logarithmsCondition 3 100) ((+) 1) 1
-    , Debug.toString <| repeatUntil collatzCompareFirstElement collatz [ 19 ]
+    , Debug.toString <| repeatUntil collatzCompareFirstElement collatz [ 10 ]
 
     -- , Debug.toString <| repeatUntil (\x -> (3 ^ x) >= 100) ((+) 1) 1
     -- , Debug.toString <| ((^) 3 2)

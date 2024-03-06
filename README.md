@@ -240,6 +240,8 @@ This example uses `repeatUntil` to increment the value 1 until the condition `(3
 
 #### Tests
 
+Tests cover wide range of the normal and edge cases. From evaluating standard input to empty lists.
+
 ### Name
 
 ---
