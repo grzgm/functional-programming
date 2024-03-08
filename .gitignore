@@ -5,10 +5,5 @@ repl-temp-*
 
 package.json
 package-lock.json
-
-src/Sandbox.elm
-
-# images
-*.png
-*.jpg
-*.jpeg
+submission/
+submission.zip
