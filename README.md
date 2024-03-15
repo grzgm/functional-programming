@@ -63,19 +63,34 @@ Script utilises the `map`, `filter` functions and Case Expressions with the func
 
 Tests verify whether functions correctly work with standard cases and with edge cases, such as empty list.
 
+
 ## Week 3
 
 ### Caesar (part 3)
 
 ---
 
-Solution File: _src/_
+Solution File: _src/CaesarPart3.elm_
 
-Test File: _src/Tests/_
+Test File: _src/Tests/CaesarPart3Test.elm_
 
 #### Solution
 
+function `isInfixOf` takes a `needle` and a `haystack` where a `needle` is the searched for substring and `haystack` is the base string
+
+function `anyContainsCanary` searches over the string for the different canaries provided
+
+If the canary is found in the text using `isInfixOf`, it returns True.
+Otherwise, it continues with the remaining canaries recursively.
+If the list of canaries is empty, it returns False.
+
+function `containsCanaries` is a wrapper function that simply calls anyContainsCanary with the given parameters.
+
+`candidates` function is the main execution point for the whole search and keeps track of the found data
+
 #### Tests
+
+tests try to see empty case, and use different canaries
 
 ### Validating Credit Card Numbers
 
@@ -124,15 +139,28 @@ In addition to the fact that the script operates on the 219 credit cards number,
 
 ## Week 4
 
-### Name
+### MergeSort
 
 ---
 
-Solution File: _src/.elm_
+Solution File: _src/MergeSort.elm_
 
-Test File: _src/Tests/.elm_
+Test File: _src/Tests/MergeSortTest.elm_
 
 #### Solution
+
+`msort`: This function is the entry point for the merge sort algorithm.
+- If the input list is empty, it returns an empty list.
+- If the input list has only one element, it returns the list itself since a list with one element is considered sorted.
+- Otherwise, it splits the list into two halves, recursively sorts each half, and then merges the sorted halves using the `merge` function.
+
+`merge`: This function takes two sorted lists (left and right) and merges them into a single sorted list.
+
+`split`: This function splits a list into two halves.
+It calculates the half-length of the list, then uses `splitAt` to split the list into two halves.
+
+`splitAt`: this function splits a list at a given index.
+It takes an index x and a list xs and returns a tuple containing two lists: the first one containing the elements up to the index x, and the second one containing the elements after index x.
 
 #### Tests
 
