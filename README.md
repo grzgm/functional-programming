@@ -39,13 +39,23 @@ Test File: _src/Tests/_
 
 ---
 
-Solution File: _src/_
+Solution File: _src/CaesarPart2.elm_
 
-Test File: _src/Tests/_
+Test File: _src/Tests/CaesarPart2Test.elm_
 
 #### Solution
 
+We have a function called `normalize` which has the following signature: `normalize: String -> String` and it removes all non-letter characters.
+
+We have a function called `encrypt` which has the following signature: `encrypt: Int -> String -> String` and it encodes every character with the given shift. does not use `normalize` in the pipeline.
+
+We have a function called `decrypt` which has the following signature: `decrypt: Int -> String -> String` and it decodes every character with the given shift. does not use `normalize` in the pipeline.
+
+There is no `String.map` calls.
+
 #### Tests
+
+Testing is divided into three parts: encoding, decoding, encoding and decoding at the same time. In order to pass tests all values should equal to True. The original character is compared with encoded/decoded/encoded&decoded character to make sure solution is valid. There is also a small section for normalizing text and if it gets rid of the non-letter characters.
 
 ### Pythagoras (part 2)
 
